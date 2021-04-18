@@ -1,42 +1,109 @@
 import random
 
-s=""
+adr1=""
 rand = random.randint(0,256)
-s += str(rand)
-s += '.'
+adr1 += str(rand)
+adr1 += '.'
 rand = random.randint(0,256)
-s += str(rand)
-s += '.'
+adr1 += str(rand)
+adr1 += '.'
 rand = random.randint(0,256)
-s += str(rand)
-s += '.'
+adr1 += str(rand)
+adr1 += '.'
 rand = random.randint(0,256)
-s += str(rand)
+adr1 += str(rand)
 
-c = str(random.randint(0,1))
+adr2=""
 
-print('Подсчитайте количество ',c,' в двоичной записи маски подсети: ',s)
+adr2 += '127.'
+rand = random.randint(0,256)
+adr2 += str(rand)
+adr2 += '.'
+rand = random.randint(0,256)
+adr2 += str(rand)
+adr2 += '.'
+rand = random.randint(0,256)
+adr2 += str(rand)
 
-mas = s.split('.')
-mas1 = []
+adr3=""
+rand = random.randint(0,256)
+adr3 += str(rand)
+adr3 += '.'
+rand = random.randint(0,256)
+adr3 += str(rand)
+adr3 += '.'
+rand = random.randint(0,256)
+adr3 += str(rand)
+adr3 += '.'
+rand = random.randint(0,256)
+adr3 += str(rand)
 
-proverka = 0
-m = 0
+adr4=""
+adr4+='127.'
+rand = random.randint(0,256)
+adr4 += str(rand)
+adr4 += '.'
+rand = random.randint(0,256)
+adr4 += str(rand)
+adr4 += '.'
+rand = random.randint(0,256)
+adr4 += str(rand)
 
-for i in range(len(mas)):
-	mas1.append('')
-	m = int(mas[i])
-	while m > 0:
-		m, a = divmod(m, 2)
-		mas1[i] = str(a) + mas1[i]
-	mas1[i] = mas1[i].count(c)
-	proverka += mas1[i]
+vopr ="Какие адреса используются для обращения к своему компьютеру?"
+print(vopr)
+print('1) ',adr1)
+print('2) ',adr2)
+print('3) ',adr3)
+print('4) ',adr4)
+k1=0
+k2=0
+k3=0
+k4=0
+b=adr1.partition('.')#разбиваем строку до первой точки
+if int(b[0])==127:
+    k1=1
+b=adr2.partition('.')#разбиваем строку до первой точки
+if int(b[0])==127:
+    k2=1
+b=adr3.partition('.')#разбиваем строку до первой точки
+if int(b[0])==127:
+    k3=1
+b=adr4.partition('.')#разбиваем строку до первой точки
+if int(b[0])==127:
+    k4=1                
+print('k1= ',k1)
+print('k2= ',k2)
+print('k3= ',k3)
+print('k4= ',k4)
 
-print('//',proverka)
-print('Введите ответ: ')
-otvet = int(input())
+otvet=str(input())
 
-if proverka == otvet:
-	print('Верно!')
-else:
-	print('Неверно(')
+h=str()
+for c in otvet:
+    # isdigit проверяет символ, является ли он цифрой
+    if c.isdigit():
+        h += c
+otvet = h #теперь в строке только варианты ответа без лишних символов
+print(otvet)
+proverka=0
+for i in range(len(otvet)):
+    if (otvet[i]==1 and k1==1):
+        proverka=1
+    else:
+        false=1
+    if (otvet[i]==2 and k2==1):
+        proverka=1
+    else:
+        false=1
+    if (otvet[i]==3 and k3==1):
+        proverka=1
+    else:
+        false=1
+    if (otvet[i]==4 and k4==1):
+        proverka=1
+    else:
+        false=1
+    print(i)
+print(false)
+print(proverka)
+#127.0.0.0 — 127.255.255.255
