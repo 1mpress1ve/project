@@ -55,10 +55,13 @@ print('1) ',adr1)
 print('2) ',adr2)
 print('3) ',adr3)
 print('4) ',adr4)
+print()
+print('Введите ответ: ')
 k1=0
 k2=0
 k3=0
 k4=0
+
 b=adr1.partition('.')#разбиваем строку до первой точки
 if int(b[0])==127:
     k1=1
@@ -71,39 +74,72 @@ if int(b[0])==127:
 b=adr4.partition('.')#разбиваем строку до первой точки
 if int(b[0])==127:
     k4=1                
-print('k1= ',k1)
-print('k2= ',k2)
-print('k3= ',k3)
-print('k4= ',k4)
 
-otvet=str(input())
+k5 = ''
 
-h=str()
-for c in otvet:
-    # isdigit проверяет символ, является ли он цифрой
-    if c.isdigit():
-        h += c
-otvet = h #теперь в строке только варианты ответа без лишних символов
-print(otvet)
-proverka=0
-for i in range(len(otvet)):
-    if (otvet[i]==1 and k1==1):
-        proverka=1
-    else:
-        false=1
-    if (otvet[i]==2 and k2==1):
-        proverka=1
-    else:
-        false=1
-    if (otvet[i]==3 and k3==1):
-        proverka=1
-    else:
-        false=1
-    if (otvet[i]==4 and k4==1):
-        proverka=1
-    else:
-        false=1
-    print(i)
-print(false)
-print(proverka)
+if k1 == 1:
+    k5 += '1'
+if k2 == 1:
+    k5 += '2'
+if k3 == 1:
+    k5 += '3'
+if k4 == 1:
+    k5 += '4'
+
+
+otvet=input()
+
+h=''
+
+for i in range(0, len(otvet)):
+    if otvet[i].isdigit():
+        h += otvet[i]
+
+h1 = ''
+
+
+k = h.count('1')
+if k >= 1:
+    h1 +='1'
+
+k = h.count('2')
+if k >= 1:
+    h1 +='2'
+
+k = h.count('3')
+if k >= 1:
+    h1 +='3'
+
+k = h.count('4')
+if k >= 1:
+    h1 +='4'
+
+
+
+
+
+proverka = 0
+
+for i in range(0, len(h1)):   
+    if (h1[i]=='1' and k1==1):
+        proverka +=1
+    if (h1[i]=='2' and k2==1):
+        proverka +=1
+    if (h1[i]=='3' and k3==1):
+        proverka +=1
+    if (h1[i]=='4' and k4==1):
+        proverka +=1
+    
+k = 0
+k = k1+k2+k3+k4
+if proverka == k:
+    print('Все верно!')
+else:
+    print('Не верно(')
+    print('Ваш ответ: ',h1)
+    print('Правильный ответ: ',k5)
+
+
+
+
 #127.0.0.0 — 127.255.255.255
