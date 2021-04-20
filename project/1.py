@@ -1,79 +1,119 @@
 import random
 
-adr1=""
-rand = random.randint(0,256)
-adr1 += str(rand)
-adr1 += '.'
-rand = random.randint(0,256)
-adr1 += str(rand)
-adr1 += '.'
-rand = random.randint(0,256)
-adr1 += str(rand)
-adr1 += '.'
-rand = random.randint(0,256)
-adr1 += str(rand)
+j = random.randint(1,4)
 
-adr2=""
+k1 = 0
+k2 = 0
+k3 = 0
+k4 = 0
 
-adr2 += '127.'
-rand = random.randint(0,256)
-adr2 += str(rand)
-adr2 += '.'
-rand = random.randint(0,256)
-adr2 += str(rand)
-adr2 += '.'
-rand = random.randint(0,256)
-adr2 += str(rand)
+if j == 1:
 
-adr3=""
-rand = random.randint(0,256)
-adr3 += str(rand)
-adr3 += '.'
-rand = random.randint(0,256)
-adr3 += str(rand)
-adr3 += '.'
-rand = random.randint(0,256)
-adr3 += str(rand)
-adr3 += '.'
-rand = random.randint(0,256)
-adr3 += str(rand)
+    adr1=""
+    rand = random.randint(0,256)
+    adr1 += str(rand)
+    adr1 += '.'
+    rand = random.randint(0,256)
+    adr1 += str(rand)
+    adr1 += '.'
+    rand = random.randint(0,256)
+    adr1 += str(rand)
+    adr1 += '.'
+    rand = random.randint(0,256)
+    adr1 += str(rand)
 
-adr4=""
-adr4+='127.'
-rand = random.randint(0,256)
-adr4 += str(rand)
-adr4 += '.'
-rand = random.randint(0,256)
-adr4 += str(rand)
-adr4 += '.'
-rand = random.randint(0,256)
-adr4 += str(rand)
+    adr2=""
 
-vopr ="Какие адреса используются для обращения к своему компьютеру?"
-print(vopr)
-print('1) ',adr1)
-print('2) ',adr2)
-print('3) ',adr3)
-print('4) ',adr4)
-print()
-print('Введите ответ: ')
-k1=0
-k2=0
-k3=0
-k4=0
+    adr2 += '127.'
+    rand = random.randint(0,256)
+    adr2 += str(rand)
+    adr2 += '.'
+    rand = random.randint(0,256)
+    adr2 += str(rand)
+    adr2 += '.'
+    rand = random.randint(0,256)
+    adr2 += str(rand)
 
-b=adr1.partition('.')#разбиваем строку до первой точки
-if int(b[0])==127:
+    adr3=""
+    rand = random.randint(0,256)
+    adr3 += str(rand)
+    adr3 += '.'
+    rand = random.randint(0,256)
+    adr3 += str(rand)
+    adr3 += '.'
+    rand = random.randint(0,256)
+    adr3 += str(rand)
+    adr3 += '.'
+    rand = random.randint(0,256)
+    adr3 += str(rand)
+
+    adr4=""
+    adr4+='127.'
+    rand = random.randint(0,256)
+    adr4 += str(rand)
+    adr4 += '.'
+    rand = random.randint(0,256)
+    adr4 += str(rand)
+    adr4 += '.'
+    rand = random.randint(0,256)
+    adr4 += str(rand)
+
+    vopr ="Какие адреса используются для обращения к своему компьютеру?"
+    print(vopr)
+    print('1) ',adr1)
+    print('2) ',adr2)
+    print('3) ',adr3)
+    print('4) ',adr4)
+    print()
+    print('Введите ответ: ')
+
+    k1=0
+    k2=0
+    k3=0
+    k4=0
+
+    b=adr1.partition('.')#разбиваем строку до первой точки
+    if int(b[0])==127:
+        k1=1
+    b=adr2.partition('.')#разбиваем строку до первой точки
+    if int(b[0])==127:
+        k2=1
+    b=adr3.partition('.')#разбиваем строку до первой точки
+    if int(b[0])==127:
+        k3=1
+    b=adr4.partition('.')#разбиваем строку до первой точки
+    if int(b[0])==127:
+        k4=1                
+
+if j == 2:
+    vopr ="Какие адреса используются только в локальных сетях?"
+    print(vopr)
+    print('1) 192.168.0.0 — 192.168.255.255')
+    print('2) 172.16.0.0 — 172.31.255.255')
+    print('3) 10.0.0.0 — 10.255.255.255')
+    print('4) 193.0.0.0 — 193.255.255.255')
+    print()
+    print('Введите ответ: ')
+    
     k1=1
-b=adr2.partition('.')#разбиваем строку до первой точки
-if int(b[0])==127:
-    k2=1
-b=adr3.partition('.')#разбиваем строку до первой точки
-if int(b[0])==127:
+    k2=0
+    k3=0
+    k4=0
+
+if j == 3:
+    vopr ="Укажите номера всех значений, которые могут быть масками подсетей."
+    print(vopr)
+    print('1) 255.255.255.224')
+    print('2) 255.255.0.255')
+    print('3) 255.255.0.0')
+    print('4) 255.255.255.192')
+    print()
+    print('Введите ответ: ')
+
+    k1=1
+    k2=0
     k3=1
-b=adr4.partition('.')#разбиваем строку до первой точки
-if int(b[0])==127:
-    k4=1                
+    k4=1
 
 k5 = ''
 
@@ -114,10 +154,6 @@ k = h.count('4')
 if k >= 1:
     h1 +='4'
 
-
-
-
-
 proverka = 0
 
 for i in range(0, len(h1)):   
@@ -138,8 +174,6 @@ else:
     print('Не верно(')
     print('Ваш ответ: ',h1)
     print('Правильный ответ: ',k5)
-
-
 
 
 #127.0.0.0 — 127.255.255.255
