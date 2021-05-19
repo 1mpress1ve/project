@@ -1,7 +1,6 @@
 from tkinter import *
 import random
 import requests
-import export
 from random import randint as rnd
 from time import time
 from json import dumps as jd
@@ -195,14 +194,22 @@ def test():
             lbl.grid(column=0,row=0)
             lbl = Label(main,text="Какие адреса используются для обращения к своему компьютеру?")
             lbl.grid(column=0,row=1)
-            lbl = Label(main,text=adr1)
+            lbl = Label(main,text="1)")
             lbl.grid(column=0,row=2)
-            lbl = Label(main,text=adr2)
+            lbl = Label(main,text=adr1)
+            lbl.grid(column=1,row=2)
+            lbl = Label(main,text="2)")
             lbl.grid(column=0,row=3)
-            lbl = Label(main,text=adr3)
+            lbl = Label(main,text=adr2)
+            lbl.grid(column=1,row=3)
+            lbl = Label(main,text="3)")
             lbl.grid(column=0,row=4)
-            lbl = Label(main,text=adr4)
+            lbl = Label(main,text=adr3)
+            lbl.grid(column=1,row=4)
+            lbl = Label(main,text="4)")
             lbl.grid(column=0,row=5)
+            lbl = Label(main,text=adr4)
+            lbl.grid(column=1,row=5)
             lbl = Label(main,text="Введите ответ: ")
             lbl.grid(column=0,row=6)
             txt = Entry(main,width=30)  
@@ -628,7 +635,7 @@ def test1():
                 d_rez+=1
             if d>0:
                 btn = Button(main, text="Следующее задание", command=test1)
-                btn.grid(column=1, row=2)
+                btn.grid(column=1, row=7)
                 d-=1
    
 
@@ -686,19 +693,27 @@ def test1():
             lbl.grid(column=0,row=0)
             lbl = Label(main,text="Какие адреса используются для обращения к своему компьютеру?")
             lbl.grid(column=0,row=1)
-            lbl = Label(main,text=adr1)
+            lbl = Label(main,text="1)")
             lbl.grid(column=0,row=2)
-            lbl = Label(main,text=adr2)
+            lbl = Label(main,text=adr1)
+            lbl.grid(column=1,row=2)
+            lbl = Label(main,text="2)")
             lbl.grid(column=0,row=3)
-            lbl = Label(main,text=adr3)
+            lbl = Label(main,text=adr2)
+            lbl.grid(column=1,row=3)
+            lbl = Label(main,text="3)")
             lbl.grid(column=0,row=4)
-            lbl = Label(main,text=adr4)
+            lbl = Label(main,text=adr3)
+            lbl.grid(column=1,row=4)
+            lbl = Label(main,text="4)")
             lbl.grid(column=0,row=5)
+            lbl = Label(main,text=adr4)
+            lbl.grid(column=1,row=5)
             lbl = Label(main,text="Введите ответ: ")
             lbl.grid(column=0,row=6)
             txt = Entry(main,width=30)  
             txt.grid(column=0, row=7)
-            btn = Button(main, text="Ввести", command=clic1)  
+            btn = Button(main, text="Ввести", command=clic)  
             btn.grid(column=1, row=7)
 
             k1=0
@@ -829,7 +844,7 @@ def test1():
                 c_rez+=1
             if c>0:
                 btn = Button(main, text="Следующее задание", command=test1)
-                btn.grid(column=1, row=2)
+                btn.grid(column=1, row=5)
                 c-=1
 
         s4=""
